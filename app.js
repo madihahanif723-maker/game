@@ -43,7 +43,7 @@ function animateChar2() {
    }
    if (event.keyCode === 32) {
       char2.src = "https://www.fightersgeneration.com/characters/alex-chop.gif"
-      char2.style.transform = "scaleX(1)"
+      char2.style.transform = "scaleX(-1)"
       setTimeout(() => {
          char2.src = 'https://www.fightersgeneration.com/characters/alex-ts-stance.gif'
       }, 1000)
