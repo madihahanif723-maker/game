@@ -1,56 +1,56 @@
-var player1 = document.getElementById("img1");
-var player2 = document.getElementById("img2");
-var pl1Position = 0;
-var pl2Position = 0;
-var minLimit = 0;
-var maxLimit = window.innerWidth - 1300;
-var frwLimit = window.innerWidth - 800;
-var plMin = -300;
+var char1 = document.getElementById("char1");
+var char2 = document.getElementById("char2");
 
+var left = 0;
+function animateChar1() {
+   if (event.keyCode == 37 && left < 1500) {
+      left = left + 10
+      char1.style.left = left + "px"
+      char1.src = "https://www.fightersgeneration.com/characters/ash-walk.gif"
+      char1.style.transform = "scaleX(-1)"
 
+   }
+   if (event.keyCode == 39 && left > 10) {
+      left = left - 10
+      char1.style.left = left + "px"
+      char1.style.transform = "scaleX(1)"
+   }
+   if (event.keyCode === 13) {
+      char1.src = "https://www.fightersgeneration.com/np7/char/gifs/ash/ash-fcd.gif"
+      char1.style.transform = "scaleX(1)"
+      setTimeout(() => {
+         char1.src = 'https://www.fightersgeneration.com/characters/ash-stance.gif'
+      }, 1000)
 
-function moveUp(e) {
-  if (e.key === "w") {
-    player1.src = "assets/brian-dumb-attack.gif";
-  } else if (e.key === "x") {
-    player1.src = "assets/brian-taunt.gif";
-  } else if (e.key === "ArrowUp") {
-    player2.src = "assets/knife.gif";
-  } else if (e.key === "ArrowDown") {
-    player2.src = "assets/rolento-spin-hits.gif";
-  }
+   }
 }
-document.addEventListener("keydown", moveUp);
+window.onkeydown = animateChar1
 
-function moveFwdr(e){
-  if(e.key === "d"){
-    if(pl1Position < frwLimit){
-    pl1Position += 20;}
+var right = 0;
+function animateChar2() {
 
-    player1.src="assets/brianbattler-stance98.gif"
-    player1.style.transform = `translateX(${pl1Position}px)`;
-  }
-  if(e.key === "ArrowLeft"){
- if (pl2Position > plMin) {
-    pl2Position -= 20;   
-  }
-  
-    player2.src="assets/rolento-grn-taunt.gif"
-    player2.style.transform = `translateX(${pl2Position}px)`;
-  
-}}
-document.addEventListener("keydown", moveFwdr);
+   if (event.keyCode == 68 && right < 1500) {
+      right = right + 10
+      char2.style.left = right + "px"
+      char2.src = "https://www.fightersgeneration.com/characters/alex-walk.gif"
+      char2.style.transform = "scaleX(1)"
 
-function moveBack(e){
-  if(e.key === "a"){
-   if(pl1Position > minLimit){pl1Position -= 20;}
-    player1.src="assets/brianbattler-stance98.gif";
-    player1.style.transform = `translateX(${pl1Position}px)`;
-  }
-  else if(e.key === "ArrowRight"){
-   if(pl2Position < maxLimit){pl2Position += 20;}
-    player2.src="assets/rolento-grn-taunt.gif"
-    player2.style.transform = `translateX(${pl2Position}px)`;
-  }
+   }
+   if (event.keyCode == 65 && right > 10) {
+      right = right - 10
+      char2.style.left = right + "px"
+      char2.style.transform = "scaleX(-1)"
+   }
+   if (event.keyCode === 32) {
+      char2.src = "https://www.fightersgeneration.com/characters/alex-chop.gif"
+      char2.style.transform = "scaleX(1)"
+      setTimeout(() => {
+         char2.src = 'https://www.fightersgeneration.com/characters/alex-ts-stance.gif'
+      }, 1000)
+
+   }
 }
-document.addEventListener("keydown", moveBack);
+
+
+window.onkeydown = animateChar2
+
